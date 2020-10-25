@@ -68,6 +68,71 @@ for j in range(5):
 			password.append('?')	
 		print("password is ",''.join(password))
 	print("userid = {},password is: ".format(j+1),''.join(password))
+	
+	
+
+results-----------------------------------------------
+password is  t
+password is  te
+password is  tes
+password is  test
+password is  test4
+password is  test45
+password is  test456
+userid = 1,password is:  test456
+password is  ?
+password is  ?e
+password is  ?ei
+password is  ?eiJ
+password is  ?eiJ4
+password is  ?eiJ4a
+password is  ?eiJ4a6
+password is  ?eiJ4a65
+password is  ?eiJ4a65@
+password is  ?eiJ4a65@1
+password is  ?eiJ4a65@1.
+password is  ?eiJ4a65@1.o
+password is  ?eiJ4a65@1.o?
+userid = 2,password is:  ?eiJ4a65@1.o?
+password is  s
+password is  s?
+password is  s?y
+password is  s?y7
+password is  s?y78
+password is  s?y785
+password is  s?y7857
+password is  s?y78578
+password is  s?y785785
+password is  s?y7857858
+password is  s?y78578587
+userid = 3,password is:  s?y78578587
+password is  m
+password is  mi
+password is  min
+password is  mind
+password is  mind1
+password is  mind12
+password is  mind121
+password is  mind1215
+password is  mind12156
+password is  mind121563
+password is  mind1215634
+password is  mind12156341
+password is  mind121563415
+password is  mind1215634156
+password is  mind12156341562
+password is  mind121563415623
+userid = 4,password is:  mind121563415623
+password is  5
+password is  56
+password is  564
+password is  5645
+password is  56457
+password is  56457t
+password is  56457to
+password is  56457to?
+password is  56457to?r
+userid = 5,password is:  56457to?r
 
 
 
