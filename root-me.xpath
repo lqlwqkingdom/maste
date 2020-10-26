@@ -1,8 +1,11 @@
 
 xpath
 一般查询语句为:
-//user[userid=5]/username='sdfsdfd',如果盲注可以用  string-length(username|password)测试长度，或者count(//user)==5测试用户数量  substring(password,1,1)测试字段的某位某个值
+//user[userid=5]/username='sdfsdfd',  在', // ,/ ，*号等字符被过滤的情况下，盲注可以用  string-length(username|password)测试长度，或者count(//user)==5测试用户数量  substring(password,1,1)测试字段的某位某个值
 //user[userid=5]/username=''||//*||//[userid=5]/username=''
+
+'1' = string('1')
+'2'= string('2')
 
 import requests
 import string
