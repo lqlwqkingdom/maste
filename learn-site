@@ -55,3 +55,10 @@ int main()
 	system("/bin/bash");
 	return 0;
 }
+
+kali 安装chrome 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install ./google-chrome-stable_current_amd64.deb
+vim chrome.sh  << /usr/bin/google-chrome-stable %U --no-sandbox --user-data-dir &
+chmod +x chrome.sh 
+./chrome.sh
