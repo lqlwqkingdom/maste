@@ -67,3 +67,7 @@ chmod +x chrome.sh
 windows search file use dos command line: c: dir /s /p filename
 
 wordpress brote force username use : wpscan --url http://IP/   --enumerate u 
+
+server run nfs: use  showmount -e serverIP   
+mount nfs sharefloder /tmp/ngfs
+ls /tmp/ngfs
