@@ -62,3 +62,8 @@ apt install ./google-chrome-stable_current_amd64.deb
 vim chrome.sh  << /usr/bin/google-chrome-stable %U --no-sandbox --user-data-dir &
 chmod +x chrome.sh 
 ./chrome.sh
+
+
+windows search file use dos command line: c: dir /s /p filename
+
+wordpress brote force username use : wpscan --url http://IP/   --enumerate u 
