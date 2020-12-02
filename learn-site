@@ -71,3 +71,6 @@ wordpress brote force username use : wpscan --url http://IP/   --enumerate u
 server run nfs: use  showmount -e serverIP   
 mount nfs sharefloder /tmp/ngfs
 ls /tmp/ngfs
+
+volatility--命令参数
+https://github.com/volatilityfoundation/volatility/wiki/Command-Reference
