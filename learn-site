@@ -74,3 +74,27 @@ ls /tmp/ngfs
 
 volatility--命令参数
 https://github.com/volatilityfoundation/volatility/wiki/Command-Reference
+
+powershell:
+
+ssh -l username ip  通过ssh 链接powershell
+
+Get-childItem -file -filter -recurse -hidden -erroraction silentlycontinue 
+#-file 查找文件  -recurse 递归  -hidden 隐藏  -dirctory 目录  -erroraction silentlycontinue 错误安静模式
+#-filter 过滤 查找某个文件名 "*file*"
+
+Get-Content 浏览文件内容   get-tencont file.txt| Measure-Object -word 计算文件内有多少word
+(Get-Content -Path file.txt)[index]  查找第index个word
+
+Set-Location -Path c:\users\administrator\desktop 切换目录
+Select-String -Path 'c:\users\administrator\desktop' -Pattern '*.pdf' 查找包含pdf字符串的文件
+
+Get-FileHash -Algorithm MD5 file.txt 计算file.txt的md5
+c:\Tools\strings64.exe -accepteula file.exe  浏览二进制文件file.exe的字符串
+
+下面两个命令可以检查某个可执行文件中是否隐藏木马文件
+Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这个stream可能是个隐藏的exe文件,尤其要关注stream和legth字段的值
+接上一行,运行wmic process call create $("c://file.exe:streamname")可以执行包含的streamname文件,通过这种方式可以执行可执行文件中包含的可执行木马文件
+
+
+
