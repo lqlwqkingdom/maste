@@ -96,5 +96,6 @@ c:\Tools\strings64.exe -accepteula file.exe  浏览二进制文件file.exe的字
 Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这个stream可能是个隐藏的exe文件,尤其要关注stream和legth字段的值
 接上一行,运行wmic process call create $("c://file.exe:streamname")可以执行包含的streamname文件,通过这种方式可以执行可执行文件中包含的可执行木马文件
 
+Http_header 包含IP的参数:X-Forwarded-For,X-Forwarded-Host,X-Client-IP,X-Remote-IP,X-Remote-Addr,X-Host
 
 
