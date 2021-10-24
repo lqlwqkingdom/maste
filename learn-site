@@ -148,3 +148,7 @@ wget https://github.com/radare/radare2/archive/4.3.1.tar.gz
 ~/radare2-4.3.1 $ make -j8
 ~/radare2-4.3.1 $ sudo make install
 1
+
+ubuntu21. windows 10 vmware共享文件夹看不到的情况解决办法：
+sudo /etc/fstab/
+添加：vmhgfs-fuse    /mnt/hgfs    fuse    defaults,allow_other    0    0
