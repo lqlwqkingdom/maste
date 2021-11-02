@@ -147,8 +147,58 @@ wget https://github.com/radare/radare2/archive/4.3.1.tar.gz
 ~/radare2-4.3.1 $ ./configure --prefix=/usr
 ~/radare2-4.3.1 $ make -j8
 ~/radare2-4.3.1 $ sudo make install
-1
+
+aaa 分析所有数据
+af 基本的分析函数
+afl 分析所有函数
+
+pdf @function 打印函数反汇编
+db 设置断点
+dc 继续执行
+ds 单步执行进
+dso 单步执行出
+px @address 
+dr register 查看寄存及内容
+
+ia 分析二进制文件的所有信息
+izz 查看二进制文件的strings
+
+j 再所有命令行后面加j,以json方式显示
+ie 查看文件的入口地址
+
+s 打印当前程序所在的二进制文件的内存地址
+s+ 5 从当前ip向前执行5条指令
+s- 12 向后退执行12步
+ss 撤销上次的seek
+s main 从mian函数开始执行
+sr rax 到rax的内存地址
+
+px 以16进制打印一个内存地址数据
+pd 以汇编形式打印当前内存地址数据
+pdf @main
+pxe 以娱乐方式打印某个内存地址数据
+
+pc 以行或者列的方式显示内存地址数据
+
+debug模式:
+db 设置断点
+dr @rax 显示某个寄存器内容
+dc 继续执行
+ds 单步执行
+ds 2 向前执行两步
+dbi 显示所有断点列表
+
+vv 可视模式
+
+vq 退回shell模式
+vs 单步执行
+v: 在图形模式下执行命令行
+v; 增加评论或者注释
+
+
+
 
 ubuntu21. windows 10 vmware共享文件夹看不到的情况解决办法：
+
 sudo /etc/fstab/
 添加：vmhgfs-fuse    /mnt/hgfs    fuse    defaults,allow_other    0    0
