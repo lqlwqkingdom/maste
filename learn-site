@@ -188,6 +188,15 @@ ds 单步执行
 ds 2 向前执行两步
 dbi 显示所有断点列表
 
+wx 值 @address 向内存地址写入值
+wa jnz address :写入汇编代码
+wci 提交所有改变
+wc  列出所有可写
+wcr 重设变化
+wtf 文件名  写入文件
+wz string写入以\0结束字符窜
+w streing 写入字符串
+w0 [n] : write n 0x00
 vv 可视模式
 
 vq 退回shell模式
