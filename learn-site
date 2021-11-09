@@ -205,6 +205,11 @@ v: 在图形模式下执行命令行
 v; 增加评论或者注释
 
 
+GCC 编译 关闭 NX, Canary ,PIE ,RELRO选项
+NX：-z execstack / -z noexecstack (关闭 / 开启)
+Canary： -fno-stack-protector /-fstack-protector / -fstack-protector-all (关闭 / 开启 / 全开启)
+PIE：-no-pie / -pie (关闭 / 开启)
+RELRO：-z norelro / -z lazy / -z now (关闭 / 部分开启 / 完全开启)
 
 
 ubuntu21. windows 10 vmware共享文件夹看不到的情况解决办法：
