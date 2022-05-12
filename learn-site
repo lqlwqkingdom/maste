@@ -234,3 +234,18 @@ windows active directory
    secretsdump.py user@test.local，需要用户密码，可以抓取NTDS.DIT的所有hash,然后可以进行pass the hash攻击提升权限了。
 6、envil-winrm 可以进行pass the hash攻击，使用前面获取的hash 不用密码可以登录域名账户。
    evil-winrm -i 192.168.0.1 -u username -H nthash
+   
+windows AD攻击中 常用到的几种技术: 
+1、keberoasting : 允许用户为具有已注册 SPN 的任何服务请求服务票证，然后使用该票证来破解服务密码。
+如果服务有注册的 SPN，那么它可以是 Kerberoastable，但是攻击的成功取决于密码的强度、是否可跟踪以及破解服务帐户的权限。
+也就是说在windows ad中，某个服务器专门运行http服务，DC会为这个服务器专门设置一个账户，这个账户具有SPN属性，域中的所有用户都可以向这个服务发起一个票证
+请求，然后根据服务返回的票证验证数据来破解 这个http服务用户的密码。
+GetuserSPNS.py可以完成以上操作。
+2、AS-REP Roasting ：AS-REP 会转储禁用 Kerberos 预身份验证的用户帐户的 krbasrep5 哈希值。
+与 Kerberoasting 不同，这些用户不必是服务帐户，能够 AS-REP 烘焙用户的唯一要求是用户必须禁用预身份验证。
+GetNPUser.py会完成以上操作。
+3、使用 Rubeus 转储 KRBASREP5 哈希 ：
+   前提是你已经有一个域用户的权限，登录到某一台域计算机中，可以抓取那些曾经登陆过的域用户的hash
+   rubeus.exe asreprost 
+   
+ 4、传递票证攻击(pass the tickets)
