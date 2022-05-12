@@ -233,3 +233,4 @@ windows active directory
 5、secretsdump.py 可以获取域中一些用户的hash ,前提是必须有相关的权限才可以
    secretsdump.py user@test.local，需要用户密码，可以抓取NTDS.DIT的所有hash,然后可以进行pass the hash攻击提升权限了。
 6、envil-winrm 可以进行pass the hash攻击，使用前面获取的hash 不用密码可以登录域名账户。
+   evil-winrm -i 192.168.0.1 -u username -H nthash
