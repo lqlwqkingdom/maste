@@ -220,8 +220,10 @@ sudo /etc/fstab/
 windows active directory 
 可以用到的工具有  kerbrute bloodhound impcat smbclient crackmapexec smbmap rubes mimikatz 
 1、smb枚举 ：enum4linux -a test.local
-2、kerbrute enumuser  可以枚举域中有哪些用户，前提是你必须给你一个userlist: kerbrute enumuser -d test.local --dc-ip 192.168.0.1 userlist.txt
+2、kerbrute userenum  可以枚举域中有哪些用户，前提是你必须给你一个userlist:
+   kerbrute userenum -d test.local --dc-ip 192.168.0.1 userlist.txt
 3、GetNPUser.py 可以抓取在域中不用 预验证的用户 hash
+   
 4、GetuserSPNs.py 可以抓取域中服务账户的 hash
 5、secretsdump.py 可以获取域中一些用户的hash ,前提是必须有相关的权限才可以
 6、envil-winrm 可以进行pass the hash攻击，使用前面获取的hash 不用密码可以登录域名账户。
