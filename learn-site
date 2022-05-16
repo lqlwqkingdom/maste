@@ -92,6 +92,9 @@ powershell:
 
 ssh -l username ip  通过ssh 链接powershell
 
+$cmd= Get-Command -commandtype cmdlet; $cmd.count  查找所有的cmdlet命令并计数。
+Get-Location 当前工作目录
+Test-Path  get-item get-childitem 检测一个文件是否存在
 Get-childItem -file -filter -recurse -hidden -erroraction silentlycontinue 
 #-file 查找文件  -recurse 递归  -hidden 隐藏  -dirctory 目录  -erroraction silentlycontinue 错误安静模式
 #-filter 过滤 查找某个文件名 "*file*"
@@ -104,6 +107,11 @@ Select-String -Path 'c:\users\administrator\desktop' -Pattern '*.pdf' 查找包�
 
 Get-FileHash -Algorithm MD5 file.txt 计算file.txt的md5
 c:\Tools\strings64.exe -accepteula file.exe  浏览二进制文件file.exe的字符串
+
+对文件test.txt中的内容进行base64解码
+$file = "c:\test.txt"
+$data = get-content $file 
+$plant_txt =  [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($data));
 
 下面两个命令可以检查某个可执行文件中是否隐藏木马文件
 Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这个stream可能是个隐藏的exe文件,尤其要关注stream和legth字段的值
