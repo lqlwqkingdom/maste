@@ -295,3 +295,7 @@ GetNPUser.py会完成以上操作。
   macof -i eth1 或者 ettercap -T -i eth1 -P rand_flood -q -w /tmp/tcpdump3.pcap
   arp spoofing
   ettercap -T -i eth1 -M arp
+  
+  
+  windows 事件日志
+  三种访问windows的方法: eventview.msc  Wevtutil.exe Get-WinEvent
