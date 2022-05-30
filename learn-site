@@ -172,6 +172,11 @@ net user username password 修改用户密码
 net user <username> <password> /add 增加用户
 net localgroup administrators <username> /add 将用户添加到admin组
 .\accesschk64.exe /accepteula -uwdq "C:\Program Files\" 检查文件的权限
+在注册表查询包含passwrod的项
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+
+cmdkey /list 可以列出在windows上保存的credentials
 msconfig :系统配置
 compmgmt.exe：计算机管理
 resmon.exe:资源管理
