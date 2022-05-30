@@ -109,7 +109,7 @@ Get-FileHash -Algorithm MD5 file.txt 计算file.txt的md5
 c:\Tools\strings64.exe -accepteula file.exe  浏览二进制文件file.exe的字符串
 查找一个任务
 Get-scheduledtask -taskname "taskone"
-
+Set-MpPreference -DisableRealtimeMonitoring $ true 关系windows 实时监控
 对文件test.txt中的内容进行base64解码
 $file = "c:\test.txt"
 $data = get-content $file 
