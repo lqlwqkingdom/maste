@@ -167,6 +167,7 @@ driverquery 列出所有驱动状态
 wmic product get name,version,vendor 查看计算机中安装的软件
 wmic service list brief 查看计算机中安装的服务
 Get-Acl hklm:\System\CurrentControlSet\services\regsvc 查看服务regsvc的权限
+Get-Service | select name,status  或者Get-Service | select status -eq "Running"
 net user <username> <password> /add
 
 net localgroup administrators <username> /add
