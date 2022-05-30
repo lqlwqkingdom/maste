@@ -90,6 +90,8 @@ https://github.com/volatilityfoundation/volatility/wiki/Command-Reference
 
 windows 有时候会设置applocker ,限制某些应用程序的执行，但是applocker有个白名单，在这个白名单的程序可以执行.
 白名单的路径是C:\Windows\System32\spool\drivers\color ,上传要执行的应用程序到这个目录就可以执行了。
+在windows域渗透中，目前你已经拥有了一个普通账户可以登录，当你获得了admin账户的密码时，可以不用远程重新登录，
+运行命令runas /savecred /user:domain\administrator "C:\Windows\System32\cmd.exe"可以执行cmd命令了。
 
 powershell:
 Windows powershell saves all previous commands into a file called ConsoleHost_history
