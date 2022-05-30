@@ -168,9 +168,10 @@ wmic product get name,version,vendor 查看计算机中安装的软件
 wmic service list brief 查看计算机中安装的服务
 Get-Acl hklm:\System\CurrentControlSet\services\regsvc 查看服务regsvc的权限
 Get-Service | select name,status  或者Get-Service | select status -eq "Running"
-net user <username> <password> /add
-
-net localgroup administrators <username> /add
+net user username password 修改用户密码
+net user <username> <password> /add 增加用户
+net localgroup administrators <username> /add 将用户添加到admin组
+.\accesschk64.exe /accepteula -uwdq "C:\Program Files\" 检查文件的权限
 msconfig :系统配置
 compmgmt.exe：计算机管理
 resmon.exe:资源管理
